@@ -45,7 +45,7 @@ enum Origin {
   fast_food,
   italian,
   greek,
-  medeteranian,
+  mediterranean,
   brunch,
   other_asian,
   other,
@@ -60,7 +60,7 @@ map<string, Origin> origin_map = {
   {"FAST FOOD", fast_food},
   {"ITALIAN", italian},
   {"GREEK", greek},
-  {"MEDETERANIAN", medeteranian},
+  {"MEDITERRANEAN", mediterranean},
   {"BRUNCH", brunch},
   {"OTHERASIAN", other_asian},
   {"OTHER", other},
@@ -277,11 +277,11 @@ void insert_restaurants(vector<Restaurant>& restaurants) {
   restaurants.push_back( Restaurant("Lee's", cupertino, 1, other_asian, casual));
   restaurants.push_back( Restaurant("Go Fish Poke", cupertino, 2, other_asian, casual));
   restaurants.push_back( Restaurant("Eureka!", cupertino, 2, other, moderate));
-  restaurants.push_back( Restaurant("House of Falafel", cupertino, 2, medeteranian, casual));
+  restaurants.push_back( Restaurant("House of Falafel", cupertino, 2, mediterranean, casual));
   restaurants.push_back( Restaurant("Nick The Greek", cupertino, 2, greek, casual));
   restaurants.push_back( Restaurant("Stein's", cupertino, 3, american, moderate));
   restaurants.push_back( Restaurant("Saratoga Bagels", saratoga, 1, american, casual));
-  restaurants.push_back( Restaurant("Oren's Hummus", cupertino, 3, medeteranian, moderate));
+  restaurants.push_back( Restaurant("Oren's Hummus", cupertino, 3, mediterranean, moderate));
   restaurants.push_back( Restaurant("IHOP", san_jose, 1, brunch, casual));
   restaurants.push_back( Restaurant("Legend's Pizza", cupertino, 2, italian, moderate));
   restaurants.push_back( Restaurant("Pizza My Heart", cupertino, 2, italian, casual));
@@ -357,13 +357,15 @@ int main() {
       break;
     }
     if (print_restaurants) {
+      cout << "\nList of filtered restaurants:\n\n";
       for (Restaurant r : restaurants) {
         if (r.get_filter()) {
           cout << r.to_string();
         }
       }
+      cout << endl;
     }
   } while (option != 'e');
   
   return 0;
-}# restaurant_picker
+}
